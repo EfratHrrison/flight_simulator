@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/neta/CLionProjects/Flight_Simulator/DataReaderServer.cpp" "/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o"
-  "/home/neta/CLionProjects/Flight_Simulator/EvaluateExp.cpp" "/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o"
-  "/home/neta/CLionProjects/Flight_Simulator/main.cpp" "/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/main.cpp.o"
-  "/home/neta/CLionProjects/Flight_Simulator/openDataServerCommand.cpp" "/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o"
+  "/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/DataReaderServer.cpp" "/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o"
+  "/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/EvaluateExp.cpp" "/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o"
+  "/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/main.cpp" "/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/main.cpp.o"
+  "/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/openDataServerCommand.cpp" "/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
