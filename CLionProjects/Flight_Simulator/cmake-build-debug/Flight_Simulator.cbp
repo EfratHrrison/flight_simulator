@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Flight_Simulator"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Flight_Simulator">
+				<Option output="/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Flight_Simulator" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 Flight_Simulator"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Flight_Simulator/fast">
+				<Option output="/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Flight_Simulator" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 Flight_Simulator/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/neta/CLionProjects/Flight_Simulator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/BinaryExpression.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/Command.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/CommandExpression.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/ConnectCommand.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/DataReaderServer.cpp">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/DataReaderServer.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/Div.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/EvaluateExp.cpp">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/EvaluateExp.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/Expression.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/Minus.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/Mult.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/Number.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/Plus.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/PrintCommand.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/ReadData.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/conditionParser.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/endOfLoopCommand.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/ifCommand.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/loopCommand.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/main.cpp">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/openDataServerCommand.cpp">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/openDataServerCommand.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/varCommand.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/CLionProjects/Flight_Simulator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
