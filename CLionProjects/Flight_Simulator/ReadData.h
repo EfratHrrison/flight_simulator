@@ -37,7 +37,7 @@ public:
     void initMapCommand() {
         Expression *open = new CommandExpression(new openServerCommand(this->glob));
         Expression *endOfLoop = new CommandExpression(new endOfLoopCommand(this->glob));
-        Expression *connect = new CommandExpression(new connectCommand(this->glob));
+        Expression *connect = new CommandExpression(new ConnectCommand(this->glob));
         Expression *var = new CommandExpression(new varCommand(this->glob));
         Expression *print = new CommandExpression(new printCommand(this->glob));
         Expression *whileCommand = new CommandExpression(new loopCommand(c, vector1,this->glob));
