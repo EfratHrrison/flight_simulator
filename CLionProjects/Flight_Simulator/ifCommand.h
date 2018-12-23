@@ -7,14 +7,16 @@
 #include "conditionParser.h"
 #include "Expression.h"
 #include "unordered_map"
-
+#include "global.h"
 #ifndef FLIGHT_SIMULATOR_IFCOMMAND_H
 #define FLIGHT_SIMULATOR_IFCOMMAND_H
 class ifCommand : public conditionParser {
     vector<std::string> vector1;
     Expression *c;
+    global *glob;
 public:
-    ifCommand(Expression *command1, vector<std::string> vector1) : conditionParser(command1,vector1){}
+    ifCommand(Expression *command1, vector<std::string> vector1,global *global1) : conditionParser(command1,vector1,global1){
+    }
 
     void execute(const std::vector<std::string> ve) {}
 

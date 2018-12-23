@@ -16,10 +16,12 @@ class conditionParser : public Command {
 protected:
     Expression *command;
     vector<std::string> condition;
+    global *glob;
 public:
-    conditionParser(Expression *command1, vector<std::string> condition) {
+    conditionParser(Expression *command1, vector<std::string> condition, global *global1) {
         this->command = command1;
         this->condition=condition;
+        this->glob=global1;
     }
 
     bool isTrue (const std::vector<std::string> ve) {
@@ -84,7 +86,7 @@ public:
         }
 
         veOfCnd.erase(veOfCnd.begin()+counter+1, veOfCnd.end());
-        conditionParser *conditionParser1 = new conditionParser(veOfCnd.at(0).first, veOfCnd.at(0).second);
+        conditionParser *conditionParser1 = new conditionParser(veOfCnd.at(0).first, veOfCnd.at(0).second,this->glob);
         conditionParser1->doCommand(veOfCnd,  veOfCnd.at(0).second);
         return counter;
     }

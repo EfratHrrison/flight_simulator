@@ -7,12 +7,15 @@
 #include "vector"
 #include "Command.h"
 #include "EvaluateExp.h"
-
+#include "global.h"
 
 using namespace std;
 class varCommand : public Command {
+    global *glob;
 public:
-    varCommand()= default;
+    varCommand(global *global1){
+        this->glob=global1;
+    }
     void execute(const std::vector<std::string> ve) {
         //new var
         if (ve[3] == "bind") {

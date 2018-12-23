@@ -12,14 +12,16 @@
 #include "Expression.h"
 #include "ifCommand.h"
 #include "unordered_map"
-
+#include "global.h"
 using namespace std;
 
 class loopCommand : public conditionParser {
     vector<std::string> vector1;
     Expression *c;
+    global *glob;
 public:
-    loopCommand(Expression *command1, vector<std::string> vector1) : conditionParser(command1,vector1) {}
+    loopCommand(Expression *command1, vector<std::string> vector1,global *global1) : conditionParser(command1,vector1,global1) {
+    }
 
     void execute(const std::vector<std::string> ve) {}
 

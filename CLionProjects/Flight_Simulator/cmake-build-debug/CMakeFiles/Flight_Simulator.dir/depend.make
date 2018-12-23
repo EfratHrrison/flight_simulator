@@ -6,6 +6,7 @@ CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o: ../DataReaderServer.cpp
 CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o: ../DataReaderServer.h
 CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o: ../EvaluateExp.h
 CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o: ../Expression.h
+CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o: ../global.h
 CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o: ../openDataServerCommand.h
 
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../BinaryExpression.h
@@ -18,6 +19,9 @@ CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../Mult.h
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../Number.h
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../Plus.h
 
+CMakeFiles/Flight_Simulator.dir/global.cpp.o: ../global.cpp
+CMakeFiles/Flight_Simulator.dir/global.cpp.o: ../global.h
+
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../Command.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../CommandExpression.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../ConnectCommand.h
@@ -28,6 +32,7 @@ CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../PrintCommand.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../ReadData.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../conditionParser.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../endOfLoopCommand.h
+CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../global.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../ifCommand.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../loopCommand.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../main.cpp
@@ -38,6 +43,7 @@ CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o: ../Command.h
 CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o: ../DataReaderServer.h
 CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o: ../EvaluateExp.h
 CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o: ../Expression.h
+CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o: ../global.h
 CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o: ../openDataServerCommand.cpp
 CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o: ../openDataServerCommand.h
 

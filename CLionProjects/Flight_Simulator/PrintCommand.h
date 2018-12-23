@@ -7,12 +7,15 @@
 #include "Command.h"
 #include "EvaluateExp.h"
 #include "iostream"
-
+#include "global.h"
 using namespace std;
 class printCommand : public Command {
+    global *glob;
 
 public:
-    printCommand()= default;
+    printCommand(global *global1){
+        this->glob=global1;
+    }
 
     void execute(const std::vector<std::string> ve) {
         if(ve[1].at(0)=='"'){

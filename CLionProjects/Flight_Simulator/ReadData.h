@@ -13,6 +13,7 @@
 #include "ConnectCommand.h"
 #include "PrintCommand.h"
 #include "varCommand.h"
+#include "global.h"
 
 #ifndef FLIGHT_SIMULATOR_READDATA_H
 #define FLIGHT_SIMULATOR_READDATA_H
@@ -20,23 +21,27 @@
 class ReadData  {
 private:
 Expression *c;
+
     map<string, Expression*> mapOfCommand;;
     vector<string> vector1;
+    global *glob;
     map<Expression*,vector<string> > map2;
 
 public:
     ReadData() {
+        this->glob =new global();
         initMapCommand();
+
     }
 
     void initMapCommand() {
-        Expression *open = new CommandExpression(new openServerCommand());
-        Expression *endOfLoop = new CommandExpression(new endOfLoopCommand());
-        Expression *connect = new CommandExpression(new connectCommand());
-        Expression *var = new CommandExpression(new varCommand());
-        Expression *print = new CommandExpression(new printCommand());
-        Expression *whileCommand = new CommandExpression(new loopCommand(c, vector1));
-        Expression *ifCmd= new CommandExpression(new ifCommand(c,vector1));
+        Expression *open = new CommandExpression(new openServerCommand(this->glob));
+        Expression *endOfLoop = new CommandExpression(new endOfLoopCommand(this->glob));
+        Expression *connect = new CommandExpression(new connectCommand(this->glob));
+        Expression *var = new CommandExpression(new varCommand(this->glob));
+        Expression *print = new CommandExpression(new printCommand(this->glob));
+        Expression *whileCommand = new CommandExpression(new loopCommand(c, vector1,this->glob));
+        Expression *ifCmd= new CommandExpression(new ifCommand(c,vector1,this->glob));
         mapOfCommand["openDataServer"] = open;
         mapOfCommand["}"] = endOfLoop;
         mapOfCommand["connect"] = connect;
@@ -94,13 +99,13 @@ public:
                     throw "No matching variable";
                 }
         }
-        if (ve.at(0).at(0) == "while") {
-            conditionParser1= new conditionParser(new CommandExpression(new loopCommand(c, vector1)), ve[0]);
-        }
+//        if (ve.at(0).at(0) == "while") {
+//            conditionParser1= new conditionParser(new CommandExpression(new loopCommand(c, vector1,this->glob)), ve[0]);
+//        }
             //if condition
-        else {
-            conditionParser1= new conditionParser(new CommandExpression(new ifCommand(c, vector1)), ve[0]);
-        }
+//        else {
+//            conditionParser1= new conditionParser(new CommandExpression(new ifCommand(c, vector1,this->glob)), ve[0]);
+//        }
 
         conditionParser1->doCommand(veOfcnd,ve[0]);
     }

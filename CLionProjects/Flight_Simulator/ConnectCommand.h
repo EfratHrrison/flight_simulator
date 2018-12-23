@@ -6,15 +6,26 @@
 #define FLIGHT_SIMULATOR_CONNECTCOMMAND_H
 #include "vector"
 #include "Command.h"
-
+#include "global.h"
+#include "EvaluateExp.h"
+#include <pthread.h>
+#include "DataReaderServer.h"
 using namespace std;
-class connectCommand : public Command {
+struct ClientParams{
+    string Ipaddress;
+    int port;
+    global *global1;
+};
+class ConnectCommand : public Command {
     Command *c;
+    global *glob;
 public:
-    connectCommand() = default;
-    void execute(const std::vector<std::string> ve) {
-        //לבדוק תקינות
+    ConnectCommand(global *global1){
+        this->glob=global1;
     }
+    void execute(const std::vector<std::string> ve);
+
+    static void* thread_func(void* arg);
     void doCondition(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<string> condition) {}
 
 };

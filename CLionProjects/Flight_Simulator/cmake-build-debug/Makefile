@@ -123,6 +123,33 @@ Flight_Simulator/fast:
 	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/build
 .PHONY : Flight_Simulator/fast
 
+ConnectCommand.o: ConnectCommand.cpp.o
+
+.PHONY : ConnectCommand.o
+
+# target to build an object file
+ConnectCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/ConnectCommand.cpp.o
+.PHONY : ConnectCommand.cpp.o
+
+ConnectCommand.i: ConnectCommand.cpp.i
+
+.PHONY : ConnectCommand.i
+
+# target to preprocess a source file
+ConnectCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/ConnectCommand.cpp.i
+.PHONY : ConnectCommand.cpp.i
+
+ConnectCommand.s: ConnectCommand.cpp.s
+
+.PHONY : ConnectCommand.s
+
+# target to generate assembly for a file
+ConnectCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/ConnectCommand.cpp.s
+.PHONY : ConnectCommand.cpp.s
+
 DataReaderServer.o: DataReaderServer.cpp.o
 
 .PHONY : DataReaderServer.o
@@ -176,6 +203,33 @@ EvaluateExp.s: EvaluateExp.cpp.s
 EvaluateExp.cpp.s:
 	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.s
 .PHONY : EvaluateExp.cpp.s
+
+global.o: global.cpp.o
+
+.PHONY : global.o
+
+# target to build an object file
+global.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/global.cpp.o
+.PHONY : global.cpp.o
+
+global.i: global.cpp.i
+
+.PHONY : global.i
+
+# target to preprocess a source file
+global.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/global.cpp.i
+.PHONY : global.cpp.i
+
+global.s: global.cpp.s
+
+.PHONY : global.s
+
+# target to generate assembly for a file
+global.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/global.cpp.s
+.PHONY : global.cpp.s
 
 main.o: main.cpp.o
 
@@ -231,6 +285,33 @@ openDataServerCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.s
 .PHONY : openDataServerCommand.cpp.s
 
+sleepCommand.o: sleepCommand.cpp.o
+
+.PHONY : sleepCommand.o
+
+# target to build an object file
+sleepCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o
+.PHONY : sleepCommand.cpp.o
+
+sleepCommand.i: sleepCommand.cpp.i
+
+.PHONY : sleepCommand.i
+
+# target to preprocess a source file
+sleepCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.i
+.PHONY : sleepCommand.cpp.i
+
+sleepCommand.s: sleepCommand.cpp.s
+
+.PHONY : sleepCommand.s
+
+# target to generate assembly for a file
+sleepCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.s
+.PHONY : sleepCommand.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -240,18 +321,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Flight_Simulator"
+	@echo "... ConnectCommand.o"
+	@echo "... ConnectCommand.i"
+	@echo "... ConnectCommand.s"
 	@echo "... DataReaderServer.o"
 	@echo "... DataReaderServer.i"
 	@echo "... DataReaderServer.s"
 	@echo "... EvaluateExp.o"
 	@echo "... EvaluateExp.i"
 	@echo "... EvaluateExp.s"
+	@echo "... global.o"
+	@echo "... global.i"
+	@echo "... global.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... openDataServerCommand.o"
 	@echo "... openDataServerCommand.i"
 	@echo "... openDataServerCommand.s"
+	@echo "... sleepCommand.o"
+	@echo "... sleepCommand.i"
+	@echo "... sleepCommand.s"
 .PHONY : help
 
 

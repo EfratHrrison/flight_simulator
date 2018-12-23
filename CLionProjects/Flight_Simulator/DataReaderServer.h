@@ -14,6 +14,8 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <string.h>
+#include "global.h"
+
 
 using namespace std;
 class DataReaderServer : public thread {
@@ -26,6 +28,7 @@ public:
         this->time=b;
     }
     static void* openServer(void *arg);
+    static void* openClientSocket(void *arg);
 };
 
 

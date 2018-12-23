@@ -93,6 +93,9 @@
 		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/CommandExpression.h">
 			<Option target="Flight_Simulator"/>
 		</Unit>
+		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/ConnectCommand.cpp">
+			<Option target="Flight_Simulator"/>
+		</Unit>
 		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/ConnectCommand.h">
 			<Option target="Flight_Simulator"/>
 		</Unit>
@@ -138,6 +141,12 @@
 		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/endOfLoopCommand.h">
 			<Option target="Flight_Simulator"/>
 		</Unit>
+		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.cpp">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
 		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/ifCommand.h">
 			<Option target="Flight_Simulator"/>
 		</Unit>
@@ -151,6 +160,12 @@
 			<Option target="Flight_Simulator"/>
 		</Unit>
 		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/openDataServerCommand.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/sleepCommand.cpp">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/sleepCommand.h">
 			<Option target="Flight_Simulator"/>
 		</Unit>
 		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/varCommand.h">

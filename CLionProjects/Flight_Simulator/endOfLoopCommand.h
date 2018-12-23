@@ -6,11 +6,14 @@
 #define FLIGHT_SIMULATOR_ENDOFLOOPCOMMAND_H
 
 #include "Command.h"
+#include "global.h"
 
 using namespace std;
 class endOfLoopCommand : public Command {
+    global *glob;
 public:
-    endOfLoopCommand(){
+    endOfLoopCommand(global *global1){
+        this->glob=global1;
     }
     void execute(std::vector<std::string> ve) {
     }

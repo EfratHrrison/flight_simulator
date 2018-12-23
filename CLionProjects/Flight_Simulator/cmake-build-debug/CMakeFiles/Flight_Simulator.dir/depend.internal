@@ -7,6 +7,7 @@ CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/DataReaderServer.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/EvaluateExp.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/Expression.h
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/openDataServerCommand.h
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/BinaryExpression.h
@@ -18,6 +19,9 @@ CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/Mult.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/Number.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/Plus.h
+CMakeFiles/Flight_Simulator.dir/global.cpp.o
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.cpp
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/Command.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/CommandExpression.h
@@ -29,6 +33,7 @@ CMakeFiles/Flight_Simulator.dir/main.cpp.o
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/ReadData.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/conditionParser.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/endOfLoopCommand.h
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/ifCommand.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/loopCommand.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/main.cpp
@@ -39,5 +44,6 @@ CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/DataReaderServer.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/EvaluateExp.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/Expression.h
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/openDataServerCommand.cpp
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/openDataServerCommand.h

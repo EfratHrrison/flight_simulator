@@ -32,6 +32,7 @@ void openServerCommand::execute(std::vector<std::string> ve) {
     struct MyParams* params = new MyParams();
     params->port = x1;
     params->hz = y1;
+    params->global1=this->glob;
 
     // DataReaderServer* serverS;
 

@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include "EvaluateExp.h"
 #include <pthread.h>
+#include "global.h"
 
 #ifndef FLIGHT_SIMULATOR_OPENDATASERVERCOMMAND_H
 #define FLIGHT_SIMULATOR_OPENDATASERVERCOMMAND_H
@@ -17,13 +18,17 @@ using namespace std;
 struct MyParams {
     double port;
     double hz;
+    global *global1;
+
 };
 
 class openServerCommand : public Command {
     Command *openServer;
+    global *glob;
 
 public:
-    openServerCommand(){
+    openServerCommand(global *global1){
+        this->glob=global1;
     }
 
     void execute(std::vector<std::string> ve);
