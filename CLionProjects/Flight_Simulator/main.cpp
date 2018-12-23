@@ -21,7 +21,7 @@ int main() {
                 read1->lexerCndition(line, myfile);
             }
             else {
-                read1->Lexer(line, ' ');
+                read1->Lexer(line);
             }
         }
         myfile.close();

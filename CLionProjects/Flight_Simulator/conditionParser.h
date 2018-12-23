@@ -63,32 +63,29 @@ public:
 
     void execute(std::vector<std::string> ve) {}
 
-    int cndINcnd(vector<pair<Expression*,vector<string>>> veOfCnd) {
-        int counter = 0;
+    void cndINcnd(vector<pair<Expression*,vector<string>>> veOfCnd) {
+        vector<pair<Expression*,vector<string>>> saveVE= veOfCnd;
         int open =0;
         int close =0;
+        int row=0;
         for (auto it = veOfCnd.begin(); it != veOfCnd.end(); it++) {
+            row++;
             if (it->second.at(it->second.size() - 1) == "{") {
-                counter++;
                 open++;
             }
             if (it->second.at(it->second.size() - 1) == "}") {
-                if (!(it->second.size()==1)) {
-                    counter++;
-                }
                 close++;
             }
             if (open == close && open != 0){
-                counter++;
                 break;
             }
 
         }
 
-        veOfCnd.erase(veOfCnd.begin()+counter+1, veOfCnd.end());
-        conditionParser *conditionParser1 = new conditionParser(veOfCnd.at(0).first, veOfCnd.at(0).second,this->glob);
-        conditionParser1->doCommand(veOfCnd,  veOfCnd.at(0).second);
-        return counter;
+        veOfCnd.erase(veOfCnd.begin()+row-1, veOfCnd.end());
+        veOfCnd.erase(veOfCnd.begin());
+        conditionParser *conditionParser1 = new conditionParser(saveVE.at(0).first, saveVE.at(0).second,this->glob);
+        conditionParser1->doCommand(veOfCnd,  saveVE.at(0).second);
     }
 
     void doCommand(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<std::string> condition) {

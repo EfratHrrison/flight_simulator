@@ -61,6 +61,8 @@ string.h
 -
 global.h
 /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.h
+vector
+/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/vector
 
 /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/EvaluateExp.h
 string
@@ -97,6 +99,8 @@ CommandExpression.h
 /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/CommandExpression.h
 openDataServerCommand.h
 /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/openDataServerCommand.h
+ConnectCommand.h
+/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/ConnectCommand.h
 cstring
 /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/cstring
 fstream
@@ -109,8 +113,6 @@ unordered_map
 /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/unordered_map
 endOfLoopCommand.h
 /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/endOfLoopCommand.h
-ConnectCommand.h
-/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/ConnectCommand.h
 PrintCommand.h
 /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/PrintCommand.h
 varCommand.h
@@ -141,6 +143,8 @@ global.h
 /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.h
 
 /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.h
+vector
+/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/vector
 map
 -
 

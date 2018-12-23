@@ -61,3 +61,12 @@ CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o: ../Expression.h
 CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o: ../sleepCommand.cpp
 CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o: ../sleepCommand.h
 
+CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o: ../Command.h
+CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o: ../ConnectCommand.h
+CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o: ../DataReaderServer.h
+CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o: ../EvaluateExp.h
+CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o: ../Expression.h
+CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o: ../global.h
+CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o: ../varCommand.cpp
+CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o: ../varCommand.h
+

@@ -18,7 +18,7 @@ using namespace std;
 //}
 
 void openServerCommand::execute(std::vector<std::string> ve) {
-    if(ve.size()!=3) {
+    if(ve.size() != 3) {
         throw "No illigal input";
     }
     EvaluateExp *evaluateExp1= new EvaluateExp(ve[1]);

@@ -16,6 +16,7 @@ void ConnectCommand::execute(const std::vector<std::string> ve) {
     params->Ipaddress = x1;
     params->port = y1;
     params->global1=this->glob;
+    params->instruction=this->glob->getIns();
 
     // DataReaderServer* serverS;
 

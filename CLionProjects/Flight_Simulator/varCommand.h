@@ -16,27 +16,7 @@ public:
     varCommand(global *global1){
         this->glob=global1;
     }
-    void execute(const std::vector<std::string> ve) {
-        //new var
-        if (ve[3] == "bind") {
-            //new bind for the bind table
-            //params.insert(make_pair(ve[1],ve[4]));
-        }
-        else {
-            //  EvaluateExp *evaluateExp1= new EvaluateExp(ve[3]);
-            //  string eval1 = evaluateExp1->Infix_To_Prefix(ve[3]);
-            //  Expression *x = evaluateExp1->evaluatePrefix(eval1);
-            //  double value = x->calculate(ve);
-            //  params1.insert(make_pair(ve[1],value));
-            // }
-            //  else {
-            //  EvaluateExp *evaluateExp1= new EvaluateExp(ve[3]);
-            //  string eval1 = evaluateExp1->Infix_To_Prefix(ve[3]);
-            //  Expression *x = evaluateExp1->evaluatePrefix(eval1);
-            //  double value = x->calculate(ve);
-            //  params1.insert(make_pair(ve[1],value));
-        }
-    }
+    void execute(const std::vector<std::string> ve);
     void doCondition(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<string> condition) {}
 
 

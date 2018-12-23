@@ -26,23 +26,45 @@ public:
     void execute(const std::vector<std::string> ve) {}
 
     void doCondition(vector<pair<Expression*,vector<string>>> veOfCnd, vector<string> condition) {
-        int row = 0;
-        int i = 0;
+        vector<pair<Expression*,vector<string>>> temp = veOfCnd;
+        int open=1;
+        int close=0;
+        bool fromLoop=false;
         while (isTrue(condition)) {
-        for (auto it = veOfCnd.begin(); it != veOfCnd.end(); it++) {
-            if (it->second.at(0)=="while" || it->second.at(0)=="if") {
-                veOfCnd.erase(veOfCnd.begin(),veOfCnd.begin()+i);
-                row += cndINcnd(veOfCnd);
-                it+=row;
-            } else {
-                if (it->second.size()>1) {
-                    it->first->calculate(it->second);
+            int i = 0;
+            for (auto it = veOfCnd.begin(); it != veOfCnd.end(); it++) {
+                if (fromLoop) {
+                    while (open != close) {
+                        if (it->second.at(it->second.size() - 1) == "{") {
+                            open++;
+                        } else if (it->second.at(it->second.size() - 1) == "}") {
+                            close++;
+                        }
+                        i++;
+                        it++;
+                    }
+                    open=1;
+                    close=0;
+                    fromLoop=false;
                 }
+                if (it->first == NULL){
+                    break;
+                }
+                if (it->second.at(0)=="while" || it->second.at(0)=="if") {
+                    temp.erase(temp.begin(),temp.begin()+i);
+                    fromLoop=true;
+                    cndINcnd(temp);
+                    temp = veOfCnd;
+
+                } else {
+                    if (it->second.size()>1) {
+                        it->first->calculate(it->second);
+                    }
+                }
+                i++;
             }
-            i++;
-         }
+        }
     }
-}
 
 
 };

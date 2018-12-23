@@ -21,7 +21,7 @@ public:
         if(ve[1].at(0)=='"'){
             string print=ve[1];
             print.erase(print.begin());
-            print.erase(print.end());
+            print.erase(print.end()-1);
             cout<< print << endl;
         }
         else {

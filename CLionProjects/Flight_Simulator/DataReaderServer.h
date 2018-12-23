@@ -15,6 +15,8 @@
 #include <unistd.h>
 #include <string.h>
 #include "global.h"
+#include "vector"
+
 
 
 using namespace std;
@@ -27,6 +29,7 @@ public:
         this->port=a;
         this->time=b;
     }
+    vector<string>explode(string s,char c);
     static void* openServer(void *arg);
     static void* openClientSocket(void *arg);
 };

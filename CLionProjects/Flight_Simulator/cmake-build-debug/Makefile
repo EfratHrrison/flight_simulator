@@ -312,6 +312,33 @@ sleepCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.s
 .PHONY : sleepCommand.cpp.s
 
+varCommand.o: varCommand.cpp.o
+
+.PHONY : varCommand.o
+
+# target to build an object file
+varCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o
+.PHONY : varCommand.cpp.o
+
+varCommand.i: varCommand.cpp.i
+
+.PHONY : varCommand.i
+
+# target to preprocess a source file
+varCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/varCommand.cpp.i
+.PHONY : varCommand.cpp.i
+
+varCommand.s: varCommand.cpp.s
+
+.PHONY : varCommand.s
+
+# target to generate assembly for a file
+varCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/varCommand.cpp.s
+.PHONY : varCommand.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -342,6 +369,9 @@ help:
 	@echo "... sleepCommand.o"
 	@echo "... sleepCommand.i"
 	@echo "... sleepCommand.s"
+	@echo "... varCommand.o"
+	@echo "... varCommand.i"
+	@echo "... varCommand.s"
 .PHONY : help
 
 

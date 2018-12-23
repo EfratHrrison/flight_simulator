@@ -1,13 +1,15 @@
 
 #include <vector>
 #include "DataReaderServer.h"
-#include "openDataServerCommand.h"
+//#include "openDataServerCommand.h"
 #include "ConnectCommand.h"
+#include "openDataServerCommand.h"
+
 
 void* DataReaderServer::openServer(void *arg) {
     vector<string> vars;
     struct MyParams *params = (struct MyParams *) arg;
-    global *glob = params->global1;
+    global *glob =params->global1;
 
     glob->updateSymTbl("efrfr", 10.9090);
     int sockfd, newsockfd, portno, clilen;
@@ -55,31 +57,38 @@ void* DataReaderServer::openServer(void *arg) {
 
     //If connection is established then start communicating */
     bzero(buffer, 1024);
-
+    vector<string> line;
     //sleep for this->Hz
     while (true) {
         n = read(newsockfd, buffer, 1024);
+       // cout<< buffer;
         string b = buffer;
         if (n < 0) {
             perror("ERROR reading from socket");
             exit(1);
         }
+        string buff="";
 
-        vector<string> line;
         size_t pos = 0;
-        string delimiter = ",";
-        //splitting by ","
-        while ((pos = b.find(delimiter)) != string::npos) {
-            line.push_back(b.substr(0, pos));
-            b.erase(0, pos + delimiter.length());
-            //cout << b << endl;
+      //  cout << b << endl;
+        char delimiter = ',';
+        for(auto n:b) {
+            if(n != delimiter) {
+                buff += n;
+            }
+            else {
+                line.push_back(buff);
+                buff="";
+            }
         }
-        line.push_back(b.substr(0, pos));
-
+        line.push_back(buff);
+        glob->setXMLTable(line);
+        line.clear();
         //update the map with new values read from the simulator
-        for (int i = 0; i < line.size(); ++i) {
-            glob->updateSymTbl(vars[i], stod(line[i]));
-        }
+        //for (int i = 0; i < line.size(); ++i) {
+          //  glob->updateSymTbl(vars[i], stod(line[i]));
+        //}
+
     }
 }
 
@@ -90,6 +99,7 @@ void* DataReaderServer::openClientSocket(void *arg) {
     struct sockaddr_in serv_addr;
     struct hostent *server;
     global *glob = params->global1;
+    int n;
 
 //    char buffer[256];
 
@@ -126,7 +136,15 @@ void* DataReaderServer::openClientSocket(void *arg) {
         perror("ERROR connecting");
         exit(1);
     }
-
-    return 0;
+    while (true) {
+        if (params->instruction != "") {
+            n = write(sockfd, params->instruction.data(), strlen(params->instruction.data()));
+            params->instruction= "";
+            /* Send message to the server */
+            if (n < 0) {
+                perror("ERROR writing to socket");
+                exit(1);
+            }
+        }
+    }
 }
-

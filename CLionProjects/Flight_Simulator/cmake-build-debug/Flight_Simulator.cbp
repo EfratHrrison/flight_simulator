@@ -168,6 +168,9 @@
 		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/sleepCommand.h">
 			<Option target="Flight_Simulator"/>
 		</Unit>
+		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/varCommand.cpp">
+			<Option target="Flight_Simulator"/>
+		</Unit>
 		<Unit filename="/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/varCommand.h">
 			<Option target="Flight_Simulator"/>
 		</Unit>

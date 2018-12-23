@@ -61,3 +61,12 @@ CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/Expression.h
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/sleepCommand.cpp
  /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/sleepCommand.h
+CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/Command.h
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/ConnectCommand.h
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/DataReaderServer.h
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/EvaluateExp.h
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/Expression.h
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/global.h
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/varCommand.cpp
+ /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/varCommand.h
