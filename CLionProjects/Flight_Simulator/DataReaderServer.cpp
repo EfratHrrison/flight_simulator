@@ -1,17 +1,17 @@
 
 #include <vector>
 #include "DataReaderServer.h"
-//#include "openDataServerCommand.h"
 #include "ConnectCommand.h"
 #include "openDataServerCommand.h"
 
 
 void* DataReaderServer::openServer(void *arg) {
+    clock_t time_start;
+    time_start = clock();
     vector<string> vars;
     struct MyParams *params = (struct MyParams *) arg;
     global *glob =params->global1;
 
-    glob->updateSymTbl("efrfr", 10.9090);
     int sockfd, newsockfd, portno, clilen;
     char buffer[1024];
     struct sockaddr_in serv_addr, cli_addr;
@@ -49,6 +49,7 @@ void* DataReaderServer::openServer(void *arg) {
     /* Accept actual connection from the client */
     newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, (socklen_t *) &clilen);
     std::cout << "hi efrat" << endl;
+    params->pass=true;
 
     if (newsockfd < 0) {
         perror("ERROR on accept");
@@ -57,12 +58,15 @@ void* DataReaderServer::openServer(void *arg) {
 
     //If connection is established then start communicating */
     bzero(buffer, 1024);
-    vector<string> line;
+    // אולי לשנות לדאבל
+    vector<double > line;
     //sleep for this->Hz
-    while (true) {
-        n = read(newsockfd, buffer, 1024);
+    while (params->pass) {
+      //  pthread_mutex_lock(&mutexIns);
+        n = read(newsockfd, buffer, 1023);
        // cout<< buffer;
         string b = buffer;
+        //cout << '\n';
         if (n < 0) {
             perror("ERROR reading from socket");
             exit(1);
@@ -70,45 +74,55 @@ void* DataReaderServer::openServer(void *arg) {
         string buff="";
 
         size_t pos = 0;
-      //  cout << b << endl;
+        //cout << b << endl;
         char delimiter = ',';
         for(auto n:b) {
             if(n != delimiter) {
                 buff += n;
             }
             else {
-                line.push_back(buff);
+                line.push_back(stod(buff));
                 buff="";
             }
         }
-        line.push_back(buff);
+        line.push_back(stod(buff));
+        if(line.size() > 23) {
+            int size = b.find("\n");
+            b.erase(0,size +1);
+            size =  b.find("\n");
+            b.erase(size,b.size() +1);
+            line.clear();
+            for(auto n:b) {
+                if(n != delimiter) {
+                    buff += n;
+                }
+                else {
+                    line.push_back(stod(buff));
+                    buff="";
+                }
+            }
+            line.push_back(stod(buff));
+        }
+       // pthread_mutex_lock(&mutexXml);
         glob->setXMLTable(line);
+       // clock_t time_end;
+      // time_end = time_start + 10 * params->hz * CLOCKS_PER_SEC / 1000;
+       // pthread_mutex_unlock(&mutexXml);
+       // while (clock() < time_end) {}
+      // pthread_mutex_unlock(&mutexIns);
         line.clear();
-        //update the map with new values read from the simulator
-        //for (int i = 0; i < line.size(); ++i) {
-          //  glob->updateSymTbl(vars[i], stod(line[i]));
-        //}
-
     }
 }
 
-
-void* DataReaderServer::openClientSocket(void *arg) {
+void*  DataReaderServer::openClientSocket(void *arg) {
     struct ClientParams *params = (struct ClientParams *) arg;
-    int sockfd, portno;
+    int sockfd, portno, n;
     struct sockaddr_in serv_addr;
     struct hostent *server;
-    global *glob = params->global1;
-    int n;
 
-//    char buffer[256];
-
-//    if (argc < 3) {
-//        fprintf(stderr,"usage %s hostname port\n", argv[0]);
-//        exit(0);
-//    }
-
+    string ip=params->Ipaddress;
     portno = params->port;
+    global *glob = params->global1;
 
     /* Create a socket point */
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -119,7 +133,7 @@ void* DataReaderServer::openClientSocket(void *arg) {
         exit(1);
     }
 
-    server = gethostbyname(params->Ipaddress.c_str());
+    server = gethostbyname(ip.data());
 
     if (server == NULL) {
         fprintf(stderr, "ERROR, no such host\n");
@@ -136,15 +150,28 @@ void* DataReaderServer::openClientSocket(void *arg) {
         perror("ERROR connecting");
         exit(1);
     }
+    cout << "connected to simulator" << endl;
     while (true) {
-        if (params->instruction != "") {
-            n = write(sockfd, params->instruction.data(), strlen(params->instruction.data()));
-            params->instruction= "";
+        // pthread_mutex_lock(&mutexIns);
+        if (glob->getIns() != "") {
+            if(::send(sockfd, glob->getIns().data(), strlen(glob->getIns().data()),0) <0){
+                perror("ERROR writing to socket");
+                exit(1);
+            }
+            cout << glob->getIns().data() << endl;
+
+            glob->setIns("");
             /* Send message to the server */
             if (n < 0) {
                 perror("ERROR writing to socket");
                 exit(1);
             }
         }
+        //   pthread_mutex_trylock(&mutexIns);
     }
 }
+
+
+
+
+

@@ -9,17 +9,22 @@
 #include "string"
 #include "Expression.h"
 #include "map"
+#include "global.h"
 using namespace std;
 class EvaluateExp {
 private:
     string string1;
+    global *glob;
+
 public:
 
-    EvaluateExp(string string2) {
+    EvaluateExp(string string2, global *global2){
         this->string1=string2;
+        this->glob=global2;
     }
     bool isVar1(string& str);
-    int findVar(string s);
+
+    double findVar(string s);
     void reverseStr(string& str);
     int Weight(char ch);
     bool Precedence(char ch1, char ch2);

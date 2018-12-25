@@ -32,6 +32,7 @@ public:
     vector<string>explode(string s,char c);
     static void* openServer(void *arg);
     static void* openClientSocket(void *arg);
+    vector<string> explode1(string &s, const char &c);
 };
 
 

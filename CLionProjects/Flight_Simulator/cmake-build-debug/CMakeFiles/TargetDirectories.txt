@@ -1,3 +1,3 @@
-/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir
+/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir

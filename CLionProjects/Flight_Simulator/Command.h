@@ -4,7 +4,6 @@
 
 #ifndef FLIGHT_SIMULATOR_COMMAND_H
 #define FLIGHT_SIMULATOR_COMMAND_H
-//// akuoooooooooooo
 #include "Expression.h"
 #include "string"
 

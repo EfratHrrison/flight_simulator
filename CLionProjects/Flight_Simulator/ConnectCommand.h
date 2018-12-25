@@ -15,12 +15,10 @@ typedef struct ClientParams {
     string Ipaddress;
     int port;
     global *global1;
-    string instruction;
 };
 class ConnectCommand : public Command {
     Command *c;
     global *glob;
-    //string ins="";
 public:
     ConnectCommand(global *global1){
         this->glob=global1;
@@ -29,12 +27,9 @@ public:
 
     static void* thread_func(void* arg);
 
+    void*  openClientSocket(void *arg);
+
     void doCondition(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<string> condition) {}
-
-//    void setIns(string inst){
-//        this->ins=inst;
-//    }
-
 };
 
 

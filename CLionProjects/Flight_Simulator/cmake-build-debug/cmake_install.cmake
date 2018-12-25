@@ -1,4 +1,4 @@
-# Install script for directory: /home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator
+# Install script for directory: /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/efrat/CLionProjects/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

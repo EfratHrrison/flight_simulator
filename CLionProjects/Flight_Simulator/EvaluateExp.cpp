@@ -14,24 +14,12 @@
 
 using namespace std;
 
-int EvaluateExp::findVar(string s) {
-    return 0;
-    //map<string, double >::iterator it;
-    //   for (it = symbTbl.begin(); it != symbTbl.end(); it++) {
-    //      if (it->first==s) {
-    //        return it->second;
-    //      }
-    //  }
+double EvaluateExp::findVar(string s) {
+    return this->glob->getValueSymbTbl(s);
 }
 
 bool EvaluateExp::isVar1(string &string1) {
-    //  unordered_map<string, double >::iterator it;
-    //  for (it = param2.begin(); it != param2.end(); it++) {
-    //      if (it->first==string1) {
-    //         return true;
-    //     }
-    //  }
-    return false;
+    return this->glob->isVar(string1);
 }
 
 void EvaluateExp::reverseStr(string& str) {
@@ -97,7 +85,7 @@ string EvaluateExp::Infix_To_Prefix(string exp) {
             S.push(exp[i]);
         }
         else if (isalpha(exp[i])) {
-            while (exp[i] != ' ' && isalpha(exp[i])) {
+            while (exp[i] != ' ' && (isalpha(exp[i])||(isdigit(exp[i])||exp[i]=='_'))) {
                 var+=exp[i];
                 i++;
             }
@@ -109,7 +97,7 @@ string EvaluateExp::Infix_To_Prefix(string exp) {
                 var="";
             }
             else {
-                throw "illigal var";
+               throw "illigal var";
             }
         }
         else if(isdigit(exp[i])) {

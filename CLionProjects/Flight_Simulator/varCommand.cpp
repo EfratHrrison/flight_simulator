@@ -10,36 +10,43 @@ void varCommand::execute(const std::vector<std::string> ve) {
     if (ve[2]=="=") {
         //bind option
         if (ve[3] == "bind") {
-            string bind = ve[4];
-            if (ve[4].find('"') != std::string::npos) {
-                //   bind.erase(bind.begin());
-                //  bind.erase(bind.end()-1);
-                this->glob->insertBindTbl(ve[1],bind);
+            if ((ve[4].find('/') != std::string::npos)) {
+               // pthread_mutex_lock(&mutexXml);
+                this->glob->insertBindTbl(ve[1], ve[4]);
+              //  pthread_mutex_unlock(&mutexXml);
             }
             else {
-                this->glob->insertBindTbl(ve[1], ve[4]);
+                // מיוטקס ??
+                this->glob->insertVarBind(ve[4],ve[1]);
             }
             //new var option
         } else {
-            EvaluateExp *evaluateExp1= new EvaluateExp(ve[3]);
+          //  pthread_mutex_lock(&mutexXml);
+            EvaluateExp *evaluateExp1= new EvaluateExp(ve[3], this->glob);
             string eval1 = evaluateExp1->Infix_To_Prefix(ve[3]);
             Expression *x = evaluateExp1->evaluatePrefix(eval1);
             double value = x->calculate(ve);
             this->glob->inserSymbTbl(ve[1], value);
+            //pthread_mutex_unlock(&mutexXml);
         }
         // update var option
     } else {
-        EvaluateExp *evaluateExp1= new EvaluateExp(ve[3]);
-        string eval1 = evaluateExp1->Infix_To_Prefix(ve[3]);
+        EvaluateExp *evaluateExp1= new EvaluateExp(ve[2], this->glob);
+        string eval1 = evaluateExp1->Infix_To_Prefix(ve[2]);
         Expression *x = evaluateExp1->evaluatePrefix(eval1);
         double value = x->calculate(ve);
         string path;
         path+="set ";
-        path+=glob->OPgetVarBindTbl(ve[0]);
+        string addr=glob->OPgetVarBindTbl(ve[0]);
+        path+=addr;
         string strValue = to_string(value);
         path+=strValue;
-        path+="/r/n";
+        path+="\r\n";
+      //  pthread_mutex_lock(&mutexIns);
         this->glob->setIns(path);
-        this->glob->updateSymTbl(ve[0],value);
+      //  pthread_mutex_unlock(&mutexIns);
+      //  pthread_mutex_lock(&mutexXml);
+        this->glob->inserSymbTbl(ve[0],value);
+     //   pthread_mutex_unlock(&mutexXml);
     }
 }

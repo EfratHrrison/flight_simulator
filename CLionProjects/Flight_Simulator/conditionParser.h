@@ -26,8 +26,8 @@ public:
 
     bool isTrue (const std::vector<std::string> ve) {
         string op = ve[2];
-        EvaluateExp *evaluateExp1= new EvaluateExp(ve[1]);
-        EvaluateExp *evaluateExp2= new EvaluateExp(ve[3]);
+        EvaluateExp *evaluateExp1= new EvaluateExp(ve[1], this->glob);
+        EvaluateExp *evaluateExp2= new EvaluateExp(ve[3], this->glob);
         string eval1 = evaluateExp1->Infix_To_Prefix(ve[1]);
         string eval2 = evaluateExp2->Infix_To_Prefix(ve[3]);
         Expression *x = evaluateExp1->evaluatePrefix(eval1);

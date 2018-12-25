@@ -4,26 +4,27 @@
 
 #ifndef FLIGHT_SIMULATOR_GLOBAL_H
 #define FLIGHT_SIMULATOR_GLOBAL_H
-
+#include <pthread.h>
 using namespace std;
-
+extern pthread_mutex_t mutexXml;
+extern pthread_mutex_t mutexIns;
 #include "vector"
 #include <map>
 class global {
 protected:
     map<string, double> symbolTable;
-    multimap<string, string> bindTable;
+    map<string, string> bindTable;
     map<string,double> xmlTable;
     vector <string> vars;
     string ins;
     int sockfd;
-    // map<string, double> xmlTable;
 public:
     global(){
         initXML();
     }
+
     void initXML() {
-        this->vars.push_back("/instrumentation/airspeed-indicator/indicated-speed-kt");
+       this->vars.push_back("/instrumentation/airspeed-indicator/indicated-speed-kt");
         this->vars.push_back("/instrumentation/altimeter/indicated-altitude-ft");
         this->vars.push_back("/instrumentation/altimeter/pressure-alt-ft");
         this->vars.push_back("/instrumentation/attitude-indicator/indicated-pitch-deg");
@@ -43,27 +44,33 @@ public:
         this->vars.push_back("/controls/flight/aileron");
         this->vars.push_back("controls/flight/rudder");
         this->vars.push_back("controls/flight/flaps");
-        this->vars.push_back("controls/engines/engine/throttle");
+        this->vars.push_back("controls/engines/current-engine/throttle");
         this->vars.push_back("/engines/engine/rpm");
     }
 
     void updateXML(string string1, double value);
 
+    bool isVar(string var);
+
     void inserSymbTbl(string var, double value);
 
-    void updateSymTbl(string var, double value);
+    string removeSubstrs(string s, string p);
+
+    void updateSymTbl();
+
+    double getValueSymbTbl(string var);
 
     void insertBindTbl(string var,string path);
+
+    void insertVarBind(string var, string newVar);
+
     string OPgetVarBindTbl(string var);
+
     void updateBindTbl(string var,string path);
 
     map<string,double> getSymTbl();
 
-    //map<string,string> getBindTbl();
-
-    void setXMLTable(vector<string> number);
-
-    string getVarBindTbl(string path);
+    void setXMLTable(vector<double> number);
 
     void setSockfd(int sockfd) {
         this->sockfd=sockfd;
@@ -74,16 +81,13 @@ public:
     }
 
     void setIns(string inst){
+      //  pthread_mutex_lock(&mutexIns);
         this->ins=inst;
+        //pthread_mutex_unlock(&mutexIns);
     }
+
     string getIns(){
         return this->ins;
     }
-
-
-
-
-
-
 };
 #endif //FLIGHT_SIMULATOR_GLOBAL_H

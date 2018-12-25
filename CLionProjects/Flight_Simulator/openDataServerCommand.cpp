@@ -21,8 +21,8 @@ void openServerCommand::execute(std::vector<std::string> ve) {
     if(ve.size() != 3) {
         throw "No illigal input";
     }
-    EvaluateExp *evaluateExp1= new EvaluateExp(ve[1]);
-    EvaluateExp *evaluateExp2= new EvaluateExp(ve[2]);
+    EvaluateExp *evaluateExp1= new EvaluateExp(ve[1],this->glob);
+    EvaluateExp *evaluateExp2= new EvaluateExp(ve[2], this->glob);
     string eval1 = evaluateExp1->Infix_To_Prefix(ve[1]);
     string eval2 = evaluateExp2->Infix_To_Prefix(ve[2]);
     Expression *x = evaluateExp1->evaluatePrefix(eval1);
@@ -38,7 +38,8 @@ void openServerCommand::execute(std::vector<std::string> ve) {
 
     pthread_t trid;
     pthread_create(&trid, nullptr, DataReaderServer::openServer, params);
-    //pthread_join(&trid, &params);
+    while(!params->pass) {}
+    return;
 
 
 }

@@ -25,7 +25,7 @@ public:
             cout<< print << endl;
         }
         else {
-            EvaluateExp *evaluateExp1= new EvaluateExp(ve[1]);
+            EvaluateExp *evaluateExp1= new EvaluateExp(ve[1], this->glob);
             string eval1 = evaluateExp1->Infix_To_Prefix(ve[1]);
             Expression *x = evaluateExp1->evaluatePrefix(eval1);
             double x1 = x->calculate(ve);

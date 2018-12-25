@@ -27,6 +27,7 @@ CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../Minus.h
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../Mult.h
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../Number.h
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../Plus.h
+CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../global.h
 
 CMakeFiles/Flight_Simulator.dir/global.cpp.o: ../global.cpp
 CMakeFiles/Flight_Simulator.dir/global.cpp.o: ../global.h
@@ -46,6 +47,7 @@ CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../ifCommand.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../loopCommand.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../openDataServerCommand.h
+CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../sleepCommand.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../varCommand.h
 
 CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o: ../Command.h
@@ -57,7 +59,9 @@ CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o: ../openDataServerCo
 CMakeFiles/Flight_Simulator.dir/openDataServerCommand.cpp.o: ../openDataServerCommand.h
 
 CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o: ../Command.h
+CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o: ../EvaluateExp.h
 CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o: ../Expression.h
+CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o: ../global.h
 CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o: ../sleepCommand.cpp
 CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o: ../sleepCommand.h
 

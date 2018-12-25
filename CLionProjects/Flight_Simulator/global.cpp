@@ -4,62 +4,101 @@
 
 #include "global.h"
 #include "iostream"
+
 using namespace std;
 
 void global::inserSymbTbl(string var, double value) {
     symbolTable.insert(pair<string, double>(var,value));
 }
 
-void global::updateSymTbl(string var, double value) {
-    symbolTable.find(var)->second=value;
+double global::getValueSymbTbl(string var) {
+  // pthread_mutex_lock(&mutexXml);
+    for (auto item: symbolTable) {
+        if (item.first == var) {
+         //  pthread_mutex_unlock(&mutexXml);
+            return item.second;
+        }
+    }
+    //pthread_mutex_unlock(&mutexXml);
 }
 
-void global::setXMLTable(vector<string> number) {
-   for (int i = 0; i < vars.size(); ++i) {
-       xmlTable[vars[i]]=stod(number[i]);
+bool global::isVar(string var) {
+  //  pthread_mutex_lock(&mutexXml);
+    for (auto item: symbolTable) {
 
-       string var=getVarBindTbl(vars[i]);
-       inserSymbTbl(var,stod(number[i]));
+        if (item.first == var) {
+           // pthread_mutex_unlock(&mutexXml);
+            return true;
+        }
     }
-    for (map<string, double>::iterator it = xmlTable.begin(); it != xmlTable.end(); ++it) {
-        cout << it->second << endl;
+   //pthread_mutex_unlock(&mutexXml);
+    return false;
+}
+// לבדוק את זה
+void global::updateSymTbl() {
+    //pthread_mutex_lock(&mutexXml);
+    for (auto item : xmlTable) {
+        for (auto item1 : bindTable) {
+            if (item.first==item1.second) {
+                inserSymbTbl(item1.first,item.second);
+            }
+        }
+    }
+    //pthread_mutex_unlock(&mutexXml);
+}
+
+void global::setXMLTable(vector<double> number) {
+   for (int i = 0; i < 23; ++i) {
+       xmlTable[vars[i]]=number[i];
+    }
+    updateSymTbl();
+}
+
+void global::insertVarBind(string var, string newVar) {
+   // pthread_mutex_lock(&mutexXml);
+    for (auto item : bindTable) {
+       if (item.first== var) {
+           insertBindTbl(newVar,item.second);
+       }
+    }
+    for (auto item1 : symbolTable) {
+        if (item1.first==var) {
+            inserSymbTbl(newVar,item1.second);
+        }
+    }
+  //  pthread_mutex_unlock(&mutexXml);
+}
+
+string global::OPgetVarBindTbl(string var) {
+    for (auto item : bindTable) {
+        if (item.first == var) {
+            string path = item.second;
+            path = removeSubstrs(path,"\"");
+            int i=0;
+            for (auto c:path){
+                if (c=='/') {
+                    path.erase(0,i+1);
+                    break;
+                }
+                i++;
+            }
+            return path + ' ';
+        }
     }
 }
 
-string global::getVarBindTbl(string path){
-    return bindTable.find(path)->second;
-}
-
-string global::OPgetVarBindTbl(string var){
-for (map<string, string>::iterator it = bindTable.begin(); it != bindTable.end(); ++it)
-    if (it->second==var) {
-        string path=it->first;
-        path.erase(0,2);
-        path.erase(path.length()-1);
-        return path+' ';
+string global::removeSubstrs(string s, string p) {
+    string::size_type n = p.length();
+    for (string::size_type i = s.find(p);
+         i != string::npos;
+         i = s.find(p)) {
+        s.erase(i, n);
     }
+    return s;
 }
 
 void global::insertBindTbl(string var, string path) {
-    bindTable.insert(pair<string,string>(var,path));
-    for (map<string, string>::iterator it1 = bindTable.begin(); it1 != bindTable.end(); ++it1) {
-        cout << it1->first << endl;
-        cout << it1->second << endl;
-    }
+   // pthread_mutex_lock(&mutexXml);
+    bindTable.insert(pair<string, string>(var,path));
+    //pthread_mutex_unlock(&mutexXml);
 }
-
-void global::updateBindTbl(string var, string path) {
-    bindTable.find(var)->second=path;
-}
-
-map<string,double> global::getSymTbl(){
-    return symbolTable;
-}
-
-//map<string,string> global::getBindTbl(){
-//    return bindTable;
-//}
-
-//void global::initSymTbl(){
-//
-//}

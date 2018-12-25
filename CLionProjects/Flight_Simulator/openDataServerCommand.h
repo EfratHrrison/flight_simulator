@@ -19,6 +19,7 @@ struct MyParams {
     double port;
     double hz;
     global *global1;
+    bool pass= false;
 
 };
 

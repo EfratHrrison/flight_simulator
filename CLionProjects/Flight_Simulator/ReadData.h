@@ -7,6 +7,7 @@
 #include "ConnectCommand.h"
 #include "cstring"
 #include "fstream"
+#include "sleepCommand.h"
 #include "conditionParser.h"
 #include "loopCommand.h"
 #include "unordered_map"
@@ -37,6 +38,7 @@ public:
         Expression *endOfLoop = new CommandExpression(new endOfLoopCommand(this->glob));
         Expression *connect = new CommandExpression(new ConnectCommand(this->glob));
         //Expression *var = new CommandExpression(new varCommand(this->glob));
+        Expression *sleep = new CommandExpression(new sleepCommand(this->glob));
         Expression *print = new CommandExpression(new printCommand(this->glob));
         Expression *whileCommand = new CommandExpression(new loopCommand(c, vector1,this->glob));
         Expression *ifCmd= new CommandExpression(new ifCommand(c,vector1,this->glob));
@@ -47,6 +49,7 @@ public:
         mapOfCommand["print"] = print;
         mapOfCommand["while"] = whileCommand;
         mapOfCommand["if"]= ifCmd;
+        mapOfCommand["sleep"] = sleep;
 
     }
 
@@ -94,6 +97,9 @@ public:
         result.push_back(temp);
         if (myfile.is_open()) {
             while (getline(myfile, line)) {
+                if (line.empty()) {
+                    continue;
+                }
                 if (strstr(line.c_str(),cnd1.c_str())) {
                     line=removeSubstrs(line,cnd1);
                     line=trim(line);
@@ -174,11 +180,11 @@ public:
                 if (!strstr(line.c_str(),var.c_str())) {
                     v= explode(line, '=', equal);
                 }
-                    //var xxx = xxx work !!!!
+                    //var xxx = xxx
                 else {
                     v= explode(line, '=', var);
                 }
-                // bind option. var xxx = bind "/////" or var xxx = bind xxx work!!!!!!
+                // bind option. var xxx = bind "/////" or var xxx = bind
             } else {
                 v= explode(line, '=', bind);
             }
@@ -236,42 +242,36 @@ public:
         return v;
     }
 
+// לא מכסה בכלל את כל המקרי קצה!!!!!
     std::vector<std::string> explodeConnect(const std::string& s) {
         std::string buff{""};
         std::vector<std::string> v;
-        bool AddresEnd=false;
         int counterPoint=0;
         for(auto n:s) {
             if (n != '.') {
-                if (AddresEnd) {
-                    if(n != ' ') {
-                        buff+=n;
-                    } else {
+                if (n != ' ' && (isdigit(n) || isalpha(n) || n=='_')) {
+                    buff += n;
+                    if(counterPoint==3){
+                        counterPoint++;
                         v.push_back(buff);
                         buff="";
-                        counterPoint++;
-                        AddresEnd = false;
-                        continue;
                     }
                 }
-                buff+=n;
             }
             else {
-                if (counterPoint<3) {
-                    buff+=n;
-                    counterPoint++;
-                }
-                else if (counterPoint==3){
-                    AddresEnd=true;
+                if (counterPoint < 3) {
+                    if (n != ' ') {
+                        buff += n;
+                        counterPoint++;
+                    }
                 }
             }
         }
         buff=trim(buff);
         v.push_back(buff);
         return v;
-
-
     }
+
     // 5+3 -6
     std::vector<std::string> explodeOpen(const std::string& s) {
         std::string buff{""};
@@ -284,7 +284,6 @@ public:
                         if (n == '(') {
                             v.push_back(buff);
                             buff="";
-
                         }
                     }
                     isSpace= false;
@@ -301,8 +300,8 @@ public:
                     }
                     isSpace = false;
                 }
-
-                buff+=n;
+                buff.push_back(n);
+                //buff+=n;
             } else {
                 v.push_back(buff);
                 buff="";
@@ -313,20 +312,22 @@ public:
         return v;
     }
 
-    std::vector<std::string> explode(const std::string& s, const char& c, string c1) {
+    std::vector<std::string> explode(const std::string& s, const char& c, const string& c1) {
         bool var = false;
         std::string buff{""};
         std::vector<std::string> v;
-        for(auto n:s) {
+        for (int i = 0; i < s.size(); i++) {
             if(var) {
-                if (n != ' ') {
-                    buff += n;
+                if (s[i] != ' ') {
+                    if (isalpha(s[i])|| isdigit(s[i]) || (s[i]=='/') || (isOperator1(s[i])) ||(s[i]=='_') ||(s[i]=='-')){
+                        buff += s[i];
+                    }
                 }
                 continue;
             }
-            if(n != c) {
-                if (n != ' ') {
-                    buff += n;
+            if(s[i] != c) {
+                if (s[i] != ' ' && (isalpha(s[i])|| isdigit(s[i]) || (isOperator1(s[i]))||(s[i]=='-') )) {
+                    buff += s[i];
                 }
             }
             else {
@@ -422,6 +423,7 @@ public:
             }
         }
     }
+
     //לעשות איטרטור על המפה של הסימבול- אם ve במקום ה0 שווה לאחד מהמפתחות -- תלך לset var command
     void parserOfCondition(std::vector<vector<string>> ve) {
         conditionParser *conditionParser1;
