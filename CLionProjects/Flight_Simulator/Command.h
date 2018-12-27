@@ -14,6 +14,7 @@ using std::string;
 class Command {
 public:
     virtual void execute(const std::vector<std::string> ve)=0;
+    virtual ~Command() = default;
     virtual void doCondition(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<string> condition)=0;
 };
 

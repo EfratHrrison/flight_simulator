@@ -18,7 +18,7 @@ public:
     }
     void execute(const std::vector<std::string> ve);
     void doCondition(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<string> condition) {}
-
+    void sendMessage(string str);
 
 };
 #endif //FLIGHT_SIMULATOR_VARCOMMAND_H

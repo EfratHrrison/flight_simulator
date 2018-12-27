@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/ConnectCommand.cpp" "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/ConnectCommand.cpp.o"
   "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/DataReaderServer.cpp" "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o"
+  "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/EntercCommand.cpp" "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.o"
   "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/EvaluateExp.cpp" "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o"
   "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/global.cpp" "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/global.cpp.o"
   "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/main.cpp" "/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/cmake-build-debug/CMakeFiles/Flight_Simulator.dir/main.cpp.o"

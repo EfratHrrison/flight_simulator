@@ -18,6 +18,12 @@ CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o: ../Expression.h
 CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o: ../global.h
 CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o: ../openDataServerCommand.h
 
+CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.o: ../Command.h
+CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.o: ../EntercCommand.cpp
+CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.o: ../EntercCommand.h
+CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.o: ../Expression.h
+CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.o: ../global.h
+
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../BinaryExpression.h
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../Div.h
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o: ../EvaluateExp.cpp
@@ -36,6 +42,7 @@ CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../Command.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../CommandExpression.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../ConnectCommand.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../DataReaderServer.h
+CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../EntercCommand.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../EvaluateExp.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../Expression.h
 CMakeFiles/Flight_Simulator.dir/main.cpp.o: ../PrintCommand.h

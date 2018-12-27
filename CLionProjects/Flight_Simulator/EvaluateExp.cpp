@@ -53,6 +53,7 @@ bool EvaluateExp::Operator(char ch) {
 }
 
 string EvaluateExp::Infix_To_Prefix(string exp) {
+    exp.erase(remove_if(exp.begin(), exp.end(), static_cast<int(*)(int)>(isspace)), exp.end());
     reverse(exp.begin(), exp.end());
     for(int i = 0; i < exp.length(); i++){
         if(exp[i] == ')'){
@@ -63,8 +64,8 @@ string EvaluateExp::Infix_To_Prefix(string exp) {
         }
     }
     stack <char> S;
-    string postfix = "";
-    string var="";
+    string postfix;
+    string var;
     for(int i = 0; i < exp.length(); i++) {
         if(exp[i] == ' ') {
             continue;
@@ -91,17 +92,29 @@ string EvaluateExp::Infix_To_Prefix(string exp) {
             }
             i--;
             reverseStr(var);
-            if(isVar1(var)){
-                int numV= findVar(var);
-                postfix+=to_string(numV);
+            if(isVar1(var)) {
+                double numV= findVar(var);
+                // לטפל בתנאי הזה!!!!!
+                if (numV < 0) {
+
+                }
+                string numStr= to_string(numV);
+                reverse(numStr.begin(), numStr.end());
+                postfix+=numStr;
                 var="";
             }
             else {
-               throw "illigal var";
+                postfix+=to_string(0);
+                //throw "illigal var";
             }
         }
         else if(isdigit(exp[i])) {
-            postfix += exp[i];
+            if (isalpha(exp[i+1])) {
+                var+=exp[i];
+            }
+            else {
+                postfix += exp[i];
+            }
         }
         else if (exp[i] == '(') {
             S.push(exp[i]);
@@ -124,12 +137,10 @@ string EvaluateExp::Infix_To_Prefix(string exp) {
     return postfix;
 }
 
-bool EvaluateExp::isOperand(char c) {
-    return isdigit(c);
-}
-
 Expression* EvaluateExp::evaluatePrefix(string exprsn) {
+    //cout << exprsn << endl;
     stack<Expression*> Stack;
+    Expression* ex;
     for (int j = exprsn.size() - 1; j >= 0; j--) {
         if (isOperand(exprsn[j])) {
             string s = "";
@@ -138,7 +149,9 @@ Expression* EvaluateExp::evaluatePrefix(string exprsn) {
                 j--;
             }
             reverseStr(s);
-            Stack.push(new Number(stoi(s)));
+            ex = new Number(stoi(s));
+            Stack.push(ex);
+            vEx.push_back(ex);
         }
         else {
             Expression *o1 = Stack.top();
@@ -150,24 +163,28 @@ Expression* EvaluateExp::evaluatePrefix(string exprsn) {
                 case '+': {
                     exp = new Plus(o1,o2);
                     Stack.push(exp);
+                    vEx.push_back(exp);
                     j--;
                     break;
                 }
                 case '-': {
                     exp = new Minus(o1, o2);
                     Stack.push(exp);
+                    vEx.push_back(exp);
                     j--;
                     break;
                 }
                 case '*': {
                     exp = new mult(o1,o2);
                     Stack.push(exp);
+                    vEx.push_back(exp);
                     j--;
                     break;
                 }
                 case '/': {
                     exp = new Div(o1,o2);
                     Stack.push(exp);
+                    vEx.push_back(exp);
                     j--;
                     break;
                 }
@@ -176,3 +193,8 @@ Expression* EvaluateExp::evaluatePrefix(string exprsn) {
     }
     return Stack.top();
 }
+
+bool EvaluateExp::isOperand(char c) {
+    return isdigit(c);
+}
+

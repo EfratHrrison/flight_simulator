@@ -1,6 +1,6 @@
-
 #include <vector>
 #include "DataReaderServer.h"
+#include <algorithm>
 #include "ConnectCommand.h"
 #include "openDataServerCommand.h"
 
@@ -8,12 +8,11 @@
 void* DataReaderServer::openServer(void *arg) {
     clock_t time_start;
     time_start = clock();
-    vector<string> vars;
     struct MyParams *params = (struct MyParams *) arg;
     global *glob =params->global1;
 
     int sockfd, newsockfd, portno, clilen;
-    char buffer[1024];
+    char buffer[256];
     struct sockaddr_in serv_addr, cli_addr;
     int n;
 
@@ -57,121 +56,69 @@ void* DataReaderServer::openServer(void *arg) {
     }
 
     //If connection is established then start communicating */
-    bzero(buffer, 1024);
-    // אולי לשנות לדאבל
-    vector<double > line;
-    //sleep for this->Hz
-    while (params->pass) {
-      //  pthread_mutex_lock(&mutexIns);
+    bzero(buffer, 256);
+    string buff;
+    string leftOvers;
+    vector<double> ve;
+    while (true) {
+        bzero(buffer, 1024);
         n = read(newsockfd, buffer, 1023);
-       // cout<< buffer;
-        string b = buffer;
-        //cout << '\n';
         if (n < 0) {
             perror("ERROR reading from socket");
             exit(1);
         }
-        string buff="";
+        string buf = buffer;
+        DataReaderServer *d;
+        ve = d->explode1(buf, ',');
+        if(ve.size() > 23){
+            unsigned long  size1 = buf.find("\n");
+            buf.erase(0,size1 + 1);
+            unsigned long size2 =  buf.find("\n");
+            if(size2 != string::npos){
+                buf.erase(size2,buf.size());
+            }
+            ve = d->explode1(buf, ',');
+            if(ve.size() < 23){
+                buf=  buffer;
+                buf.erase(size1,buf.size());
 
-        size_t pos = 0;
-        //cout << b << endl;
-        char delimiter = ',';
-        for(auto n:b) {
-            if(n != delimiter) {
-                buff += n;
             }
-            else {
-                line.push_back(stod(buff));
-                buff="";
-            }
+            ve = d->explode1(buf, ',');
         }
-        line.push_back(stod(buff));
-        if(line.size() > 23) {
-            int size = b.find("\n");
-            b.erase(0,size +1);
-            size =  b.find("\n");
-            b.erase(size,b.size() +1);
-            line.clear();
-            for(auto n:b) {
-                if(n != delimiter) {
-                    buff += n;
-                }
-                else {
-                    line.push_back(stod(buff));
-                    buff="";
-                }
+        for (int i = 0; i < glob->getVars().size(); ++i) {
+            try {
+                glob->setXMLTable(glob->getVars()[i], ve[i]);
+
+            }   catch (exception& e)    {
+                cout << "Exception!" << e.what() << endl;
             }
-            line.push_back(stod(buff));
+
         }
-       // pthread_mutex_lock(&mutexXml);
-        glob->setXMLTable(line);
-       // clock_t time_end;
-      // time_end = time_start + 10 * params->hz * CLOCKS_PER_SEC / 1000;
-       // pthread_mutex_unlock(&mutexXml);
-       // while (clock() < time_end) {}
-      // pthread_mutex_unlock(&mutexIns);
-        line.clear();
+        buff += leftOvers;
+        leftOvers = "";
     }
 }
 
-void*  DataReaderServer::openClientSocket(void *arg) {
-    struct ClientParams *params = (struct ClientParams *) arg;
-    int sockfd, portno, n;
-    struct sockaddr_in serv_addr;
-    struct hostent *server;
-
-    string ip=params->Ipaddress;
-    portno = params->port;
-    global *glob = params->global1;
-
-    /* Create a socket point */
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    glob->setSockfd(sockfd);
-
-    if (sockfd < 0) {
-        perror("ERROR opening socket");
-        exit(1);
-    }
-
-    server = gethostbyname(ip.data());
-
-    if (server == NULL) {
-        fprintf(stderr, "ERROR, no such host\n");
-        exit(0);
-    }
-
-    bzero((char *) &serv_addr, sizeof(serv_addr));
-    serv_addr.sin_family = AF_INET;
-    bcopy((char *) server->h_addr, (char *) &serv_addr.sin_addr.s_addr, server->h_length);
-    serv_addr.sin_port = htons(portno);
-
-    /* Now connect to the server */
-    if (connect(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
-        perror("ERROR connecting");
-        exit(1);
-    }
-    cout << "connected to simulator" << endl;
-    while (true) {
-        // pthread_mutex_lock(&mutexIns);
-        if (glob->getIns() != "") {
-            if(::send(sockfd, glob->getIns().data(), strlen(glob->getIns().data()),0) <0){
-                perror("ERROR writing to socket");
-                exit(1);
-            }
-            cout << glob->getIns().data() << endl;
-
-            glob->setIns("");
-            /* Send message to the server */
-            if (n < 0) {
-                perror("ERROR writing to socket");
-                exit(1);
-            }
+vector<double> DataReaderServer::explode1(string &s, const char &c) {
+    string buff{""};
+    vector<double> v;
+    for (auto n:s) {
+        if (n != c) {
+            buff += n;
+        } else if(buff != ""){
+            double num;
+            num = stod(buff);
+            v.push_back(num);
+            buff = "";
         }
-        //   pthread_mutex_trylock(&mutexIns);
     }
+    if (buff[buff.length() - 1] == '\n') {
+        buff = buff.substr(0, buff.length() - 1);
+    }
+    double num;
+    if (buff != "" && buff != "-" && buff[buff.length() - 1] != '.') {
+        num = stod(buff);
+        v.push_back(num);
+    }
+    return v;
 }
-
-
-
-
-

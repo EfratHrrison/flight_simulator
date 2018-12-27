@@ -29,9 +29,11 @@ public:
             string eval1 = evaluateExp1->Infix_To_Prefix(ve[1]);
             Expression *x = evaluateExp1->evaluatePrefix(eval1);
             double x1 = x->calculate(ve);
+            delete(evaluateExp1);
             cout << x1 << endl;
         }
     }
+
     void doCondition(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<string> condition) {}
 };
 

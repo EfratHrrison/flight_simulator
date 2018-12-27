@@ -18,6 +18,12 @@ CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.o
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/Expression.h
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/global.h
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/openDataServerCommand.h
+CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.o
+ /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/Command.h
+ /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/EntercCommand.cpp
+ /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/EntercCommand.h
+ /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/Expression.h
+ /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/global.h
 CMakeFiles/Flight_Simulator.dir/EvaluateExp.cpp.o
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/BinaryExpression.h
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/Div.h
@@ -37,6 +43,7 @@ CMakeFiles/Flight_Simulator.dir/main.cpp.o
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/CommandExpression.h
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/ConnectCommand.h
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/DataReaderServer.h
+ /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/EntercCommand.h
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/EvaluateExp.h
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/Expression.h
  /home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/PrintCommand.h

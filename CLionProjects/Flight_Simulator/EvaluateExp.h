@@ -15,6 +15,7 @@ class EvaluateExp {
 private:
     string string1;
     global *glob;
+    vector<Expression*> vEx;
 
 public:
 
@@ -32,6 +33,11 @@ public:
     string Infix_To_Prefix(string exp);
     bool isOperand(char c);
     Expression* evaluatePrefix(string exprsn);
+    ~EvaluateExp(){
+        for(auto x: this->vEx){
+            delete(x);
+        }
+    }
 
 
 };

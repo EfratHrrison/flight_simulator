@@ -6,16 +6,13 @@
 #include <fstream>
 #include "iostream"
 #include "cstring"
-pthread_mutex_t mutexXml;
-pthread_mutex_t mutexIns;
+
 using namespace std;
 
-int main() {
-    pthread_mutex_init(&mutexXml, nullptr);
-    pthread_mutex_init(&mutexIns, nullptr);
+int main(int argc, char* argv[]) {
     ReadData *read1 = new ReadData();
     string line="";
-    ifstream myfile ("FILE");
+    ifstream myfile (argv[1]);
     string while1 = "while";
     string if1 = "if";
     if (myfile.is_open()) {

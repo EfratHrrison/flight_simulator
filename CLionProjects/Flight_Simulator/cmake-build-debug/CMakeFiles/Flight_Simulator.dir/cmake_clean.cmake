@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Flight_Simulator.dir/ConnectCommand.cpp.o"
   "CMakeFiles/Flight_Simulator.dir/sleepCommand.cpp.o"
   "CMakeFiles/Flight_Simulator.dir/varCommand.cpp.o"
+  "CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.o"
   "Flight_Simulator.pdb"
   "Flight_Simulator"
 )

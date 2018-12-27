@@ -36,9 +36,14 @@ void openServerCommand::execute(std::vector<std::string> ve) {
 
     // DataReaderServer* serverS;
 
+    for (int i = 0; i < glob->getVars().size(); ++i) {
+        glob->setXMLTable(glob->getVars()[i], 0);
+    }
     pthread_t trid;
     pthread_create(&trid, nullptr, DataReaderServer::openServer, params);
     while(!params->pass) {}
+    delete(evaluateExp1);
+    delete(evaluateExp2);
     return;
 
 

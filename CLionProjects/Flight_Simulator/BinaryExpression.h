@@ -16,6 +16,10 @@ public:
         this->left = a;
         this->right = b;
     }
+    ~BinaryExpression(){
+        delete left;
+        delete right;
+    }
 
 };
 

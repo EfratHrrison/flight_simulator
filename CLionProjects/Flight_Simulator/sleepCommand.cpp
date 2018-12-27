@@ -9,8 +9,8 @@ void sleepCommand::execute(const std::vector<std::string> ve) {
     string eval1 = evaluateExp1->Infix_To_Prefix(ve[1]);
     Expression *x = evaluateExp1->evaluatePrefix(eval1);
     double x1 = x->calculate(ve);
-    double sleepTime=x1*1000;
-    sleep(sleepTime);
+    double sleepTime=x1;
+    usleep(sleepTime*1000);
 }
 
 void sleepCommand::doCondition(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<string> condition){}

@@ -15,6 +15,7 @@
 #include "PrintCommand.h"
 #include "varCommand.h"
 #include "global.h"
+#include "EntercCommand.h"
 
 #ifndef FLIGHT_SIMULATOR_READDATA_H
 #define FLIGHT_SIMULATOR_READDATA_H
@@ -39,6 +40,7 @@ public:
         Expression *connect = new CommandExpression(new ConnectCommand(this->glob));
         //Expression *var = new CommandExpression(new varCommand(this->glob));
         Expression *sleep = new CommandExpression(new sleepCommand(this->glob));
+        Expression *enterc = new CommandExpression(new EntercCommand(this->glob));
         Expression *print = new CommandExpression(new printCommand(this->glob));
         Expression *whileCommand = new CommandExpression(new loopCommand(c, vector1,this->glob));
         Expression *ifCmd= new CommandExpression(new ifCommand(c,vector1,this->glob));
@@ -50,7 +52,7 @@ public:
         mapOfCommand["while"] = whileCommand;
         mapOfCommand["if"]= ifCmd;
         mapOfCommand["sleep"] = sleep;
-
+        mapOfCommand["Enterc"]=enterc;
     }
 
     int lexerCndition(string condition , std::ifstream& myfile) {
@@ -172,6 +174,7 @@ public:
         string connect = "connect";
         string print ="print";
         string sleep ="sleep";
+        string enterc="Enterc";
         //3 option of vars
         if(strstr(line.c_str(),equal.c_str())) {
             //2 option - or var xxx = xxx or xxx = xxx
@@ -213,6 +216,9 @@ public:
             v.push_back(sleep);
             v.push_back(buff);
         }
+        else if (strstr(line.c_str(),enterc.c_str())) {
+            v.push_back(enterc);
+        }
         else {
             throw "invalid input";
         }
@@ -223,16 +229,23 @@ public:
         std::string buff{""};
         bool check=false;
         std::vector<std::string> v;
-        for(auto n:s) {
+        for(int i=0; i<s.size() ;i++) {
+            if(s[i]== ' ') {
+                continue;
+            }
             if (check) {
-                buff+=n;
-            } else if (!isOperand1(n)) {
-                buff += n;
+                buff+=s[i];
+            } else if (!isOperand1(s[i])) {
+                buff += s[i];
             } else {
                 check=true;
                 v.push_back(buff);
                 buff="";
-                buff+=n;
+                buff+=s[i];
+                if (isOperand1(s[i+1])) {
+                    buff+=s[i+1];
+                    i++;
+                }
                 v.push_back(buff);
                 buff="";
             }
@@ -326,7 +339,7 @@ public:
                 continue;
             }
             if(s[i] != c) {
-                if (s[i] != ' ' && (isalpha(s[i])|| isdigit(s[i]) || (isOperator1(s[i]))||(s[i]=='-') )) {
+                if (s[i] != ' ' && (isalpha(s[i])|| isdigit(s[i]) || (isOperator1(s[i]))||(s[i]=='-') ||(s[i]=='_')  )) {
                     buff += s[i];
                 }
             }
@@ -374,7 +387,7 @@ public:
     }
 
     bool isOperand1(char c) {
-        if ( (c=='>' ) || (c=='<') || (c=='==')|| (c=='!=') || (c=='>=') || (c=='<=') ) {
+        if ( (c=='>' ) || (c=='<') || (c=='!') || (c=='=') ) {
             return true;
         }
         return false;
@@ -424,7 +437,6 @@ public:
         }
     }
 
-    //לעשות איטרטור על המפה של הסימבול- אם ve במקום ה0 שווה לאחד מהמפתחות -- תלך לset var command
     void parserOfCondition(std::vector<vector<string>> ve) {
         conditionParser *conditionParser1;
         vector<pair<Expression*,vector<string>>> veOfcnd;

@@ -17,6 +17,7 @@ public:
     Expression(){
     }
     virtual double calculate(std::vector<std::string> v)=0;
+    virtual ~Expression()= default;
     virtual void doExectue(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<string> condition)=0;
 
 

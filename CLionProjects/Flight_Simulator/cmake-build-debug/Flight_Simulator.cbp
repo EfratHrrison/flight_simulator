@@ -108,6 +108,12 @@
 		<Unit filename="/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/Div.h">
 			<Option target="Flight_Simulator"/>
 		</Unit>
+		<Unit filename="/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/EntercCommand.cpp">
+			<Option target="Flight_Simulator"/>
+		</Unit>
+		<Unit filename="/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/EntercCommand.h">
+			<Option target="Flight_Simulator"/>
+		</Unit>
 		<Unit filename="/home/neta/Desktop/flight_simulator/CLionProjects/Flight_Simulator/EvaluateExp.cpp">
 			<Option target="Flight_Simulator"/>
 		</Unit>

@@ -21,6 +21,10 @@ public:
     virtual void doExectue(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<string> condition) {
         c->doCondition(mapOfCnd,condition);
     }
+    ~CommandExpression(){
+       delete c;
+    }
+
 
 
 };

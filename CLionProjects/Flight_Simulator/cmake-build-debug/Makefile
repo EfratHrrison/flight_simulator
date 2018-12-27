@@ -177,6 +177,33 @@ DataReaderServer.cpp.s:
 	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/DataReaderServer.cpp.s
 .PHONY : DataReaderServer.cpp.s
 
+EntercCommand.o: EntercCommand.cpp.o
+
+.PHONY : EntercCommand.o
+
+# target to build an object file
+EntercCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.o
+.PHONY : EntercCommand.cpp.o
+
+EntercCommand.i: EntercCommand.cpp.i
+
+.PHONY : EntercCommand.i
+
+# target to preprocess a source file
+EntercCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.i
+.PHONY : EntercCommand.cpp.i
+
+EntercCommand.s: EntercCommand.cpp.s
+
+.PHONY : EntercCommand.s
+
+# target to generate assembly for a file
+EntercCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Flight_Simulator.dir/build.make CMakeFiles/Flight_Simulator.dir/EntercCommand.cpp.s
+.PHONY : EntercCommand.cpp.s
+
 EvaluateExp.o: EvaluateExp.cpp.o
 
 .PHONY : EvaluateExp.o
@@ -354,6 +381,9 @@ help:
 	@echo "... DataReaderServer.o"
 	@echo "... DataReaderServer.i"
 	@echo "... DataReaderServer.s"
+	@echo "... EntercCommand.o"
+	@echo "... EntercCommand.i"
+	@echo "... EntercCommand.s"
 	@echo "... EvaluateExp.o"
 	@echo "... EvaluateExp.i"
 	@echo "... EvaluateExp.s"

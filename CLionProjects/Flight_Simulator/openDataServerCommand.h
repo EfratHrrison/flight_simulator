@@ -31,7 +31,7 @@ public:
     openServerCommand(global *global1){
         this->glob=global1;
     }
-
+    void* serverThread(void *arg);
     void execute(std::vector<std::string> ve);
 
     void doCondition(vector<pair<Expression*,vector<string>>> mapOfCnd, vector<string> condition);
